@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4a574 #f5e6d0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5e6d0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a574;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a06636;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(192, 57, 43, 0.3);
+  color: inherit;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, a {
+  transition: all 0.2s ease;
+}
+
+/* Ingredient hover glow effects */
+.ingredient-glow:hover {
+  filter: brightness(1.1);
+}
+
+/* Pot liquid animation */
+@keyframes liquidWave {
+  0%, 100% { transform: translateX(0) scaleY(1); }
+  50% { transform: translateX(-5px) scaleY(1.02); }
+}
+
+.liquid-wave {
+  animation: liquidWave 2s ease-in-out infinite;
+}
+
+/* Pathway connector animation */
+@keyframes pathwayPulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.pathway-pulse {
+  animation: pathwayPulse 1.5s ease-in-out infinite;
+}
+
+/* Toast notification */
+@keyframes toastIn {
+  from { transform: translateY(100%) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.toast-enter {
+  animation: toastIn 0.3s ease-out;
+}
+
+/* Print styles for study mode */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+}
